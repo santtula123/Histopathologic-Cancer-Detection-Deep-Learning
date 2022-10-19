@@ -1,6 +1,10 @@
 {
 'lr': [0.001],
+'optimizer': ['Adam'],
 'epochs': [2],
-'b_size': [4],
-'num_classes': [1]
+'b_size': [32],
+'num_classes': [1],
+'n_filters': [[64, 64, 128, 128]],
+'act': ['relu'],
+'drop_out': [0.4]
 }

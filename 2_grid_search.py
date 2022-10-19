@@ -20,7 +20,7 @@ from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dropout, Dense
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.regularizers import L2
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam, Adagrad, SGD
 from tensorflow.keras.callbacks import ModelCheckpoint, CSVLogger
 from tensorflow.keras.models import load_model
 from tensorflow.keras.utils import plot_model
@@ -90,12 +90,12 @@ def build_model(input_shape, cfg):
     input_ = Input(shape=(input_shape))
     conv_base = input_
 
-    for n_filters in [64, 64, 128, 128]:
-        conv_base = Conv2D(n_filters, 3, activation="relu", padding="same")(conv_base)
+    for n_filters in cfg['n_filters']:
+        conv_base = Conv2D(n_filters, 3, activation=cfg['act'], padding="same")(conv_base)
         conv_base = MaxPooling2D(2)(conv_base)
 
     x = Flatten()(conv_base)
-    x = Dropout(0.4)(x)
+    x = Dropout(cfg['drop_out'])(x)
     x = Dense(512, activation="relu")(x)    
     output = Dense(cfg['num_classes'], activation="sigmoid")(x)
     model = Model(inputs=input_, outputs=output)
@@ -105,7 +105,13 @@ def build_model(input_shape, cfg):
 def train_model(it_train, it_val, cfg, models_path):
     model = build_model((96, 96, 3), cfg)
     
-    sgd = Adam(amsgrad=True, learning_rate=cfg['lr'])
+    if cfg['optimizer'] == 'Adam':
+        sgd = Adam(amsgrad=True, learning_rate=cfg['lr'])
+    elif cfg['optimizer'] == 'SGD':
+        sgd = SGD(learning_rate=cfg['lr'])
+    elif cfg['optimizer'] == 'Adagrad':
+        sgd = Adagrad(learning_rate=cfg['lr'])        
+     
     model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
     
     checkpoint_dir = os.path.sep.join([models_path, 'tmp'])
@@ -125,11 +131,11 @@ def train_model(it_train, it_val, cfg, models_path):
     
     return model, history
 
-def evaluate_models(models, it_eval):    
+def evaluate_models(models, it_eval, cfg):    
     X_test_eval = np.concatenate([it_eval .next()[0] for i in range(it_eval .__len__())])
     y_test_eval = np.concatenate([it_eval .next()[1] for i in range(it_eval .__len__())])
 
-    all_preds = [model.predict(X_test_eval)[:,0] for model in models]
+    all_preds = [model.predict(X_test_eval, batch_size=cfg['b_size'])[:,0] for model in models]
 
     model_accs = [accuracy_score(y_test_eval, (preds > 0.5).astype(int)) for preds in all_preds]
     model_accs = np.array(model_accs).round(6)
@@ -141,7 +147,7 @@ def evaluate_models(models, it_eval):
     print(f"Evaluation accuracy (weighted accuracy): {weighted_acc*100:.3f}\n")
     return model_accs, weighted_acc
 
-def grid_search(it_train, it_val, it_eval, cfgs, models_path, pdf, n_repeats):    
+def grid_search(cfgs, models_path, pdf, n_repeats):    
     avg_scores = []
     best_scores = []
     
@@ -151,12 +157,14 @@ def grid_search(it_train, it_val, it_eval, cfgs, models_path, pdf, n_repeats):
         print_log(f"Konfiguraatio {i}: {cfg}", f"{models_path}/cfgs.txt")
         open(os.path.sep.join([models_path, 'training.log']), 'a').write(f"cfg: {i}\n")
         
+        it_train, it_val, it_eval = load_data(cfg)
+        
         models_histories = [train_model(it_train, it_val, cfg, models_path) for _ in range(n_repeats)]
         models = [model for model, history in models_histories]
         histories = [history for model, history in models_histories]
         save_model_info(models[0], cfg, models_path)
         
-        model_accs, weighted_acc = evaluate_models(models, it_eval)
+        model_accs, weighted_acc = evaluate_models(models, it_eval, cfg)
         learning_curves(histories, i, weighted_acc, model_accs, pdf)
         
         avg_scores.append((i, weighted_acc, model_accs, models))
@@ -179,14 +187,13 @@ def grid_search(it_train, it_val, it_eval, cfgs, models_path, pdf, n_repeats):
     
     return avg_scores, best_scores
 
-def load_data():
+def load_data(cfg):
     data_path = 'data'
     train_path = os.path.join(data_path, 'train')
     eval_path = os.path.join(data_path, 'eval')
     test_path = os.path.join(data_path, 'test')
     
-    #TODO: split to own method
-    b_size = 32
+    b_size = cfg['b_size']
     
     datagen_train = ImageDataGenerator(validation_split=0.2, rescale=1./255, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
     datagen_val = ImageDataGenerator(validation_split=0.2, rescale=1./255)
@@ -211,13 +218,11 @@ pdf = PdfPages(os.path.join(models_path, "learning_curves.pdf"))
 
 param_grid = ast.literal_eval(open("param_grid.txt", "r").read())
 cfgs = {i: cfg for i, cfg in enumerate(list(ParameterGrid(param_grid)), 1)}
-
-it_train, it_val, it_eval  = load_data()
                           
-n_repeats = 2
+n_repeats = 1
 
 start = timer()
-avg_scores, best_scores = grid_search(it_train, it_val, it_eval, cfgs, models_path, pdf, n_repeats)
+avg_scores, best_scores = grid_search(cfgs, models_path, pdf, n_repeats)
 end = timer()
 
 write_to_file = ""
