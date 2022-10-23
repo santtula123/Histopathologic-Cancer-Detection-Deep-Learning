@@ -14,6 +14,7 @@ import os
 import shutil
 import pandas as pd
 import numpy as np
+import tensorflow as tf
 import ast
 
 from tensorflow.keras import Model
@@ -131,21 +132,23 @@ def train_model(it_train, it_val, cfg, models_path):
     
     return model, history
 
-def evaluate_models(models, it_eval, cfg):    
-    X_test_eval = np.concatenate([it_eval .next()[0] for i in range(it_eval .__len__())])
-    y_test_eval = np.concatenate([it_eval .next()[1] for i in range(it_eval .__len__())])
+def evaluate_models(models, it_eval, cfg):
+    #OOM prevention using CPU instead of GPU that runs out memory more easily.
+    with tf.device('/cpu:0'):    
+        X_test_eval = np.concatenate([it_eval .next()[0] for i in range(it_eval .__len__())])
+        y_test_eval = np.concatenate([it_eval .next()[1] for i in range(it_eval .__len__())])
 
-    all_preds = [model.predict(X_test_eval, batch_size=cfg['b_size'])[:,0] for model in models]
+        all_preds = [model.predict(X_test_eval, batch_size=cfg['b_size'])[:,0] for model in models]
 
-    model_accs = [accuracy_score(y_test_eval, (preds > 0.5).astype(int)) for preds in all_preds]
-    model_accs = np.array(model_accs).round(6)
+        model_accs = [accuracy_score(y_test_eval, (preds > 0.5).astype(int)) for preds in all_preds]
+        model_accs = np.array(model_accs).round(6)
 
-    weighted_preds = (np.average(all_preds, axis=0, weights=model_accs) > 0.5).astype(int)
-    weighted_acc = accuracy_score(y_test_eval, weighted_preds)
+        weighted_preds = (np.average(all_preds, axis=0, weights=model_accs) > 0.5).astype(int)
+        weighted_acc = accuracy_score(y_test_eval, weighted_preds)
 
-    print(f"Evaluation accuracy (model accuracies): {str(model_accs)}\n")
-    print(f"Evaluation accuracy (weighted accuracy): {weighted_acc*100:.3f}\n")
-    return model_accs, weighted_acc
+        print(f"Evaluation accuracy (model accuracies): {str(model_accs)}\n")
+        print(f"Evaluation accuracy (weighted accuracy): {weighted_acc*100:.3f}\n")
+        return model_accs, weighted_acc
 
 def grid_search(cfgs, models_path, pdf, n_repeats):    
     avg_scores = []
@@ -219,7 +222,7 @@ pdf = PdfPages(os.path.join(models_path, "learning_curves.pdf"))
 param_grid = ast.literal_eval(open("param_grid.txt", "r").read())
 cfgs = {i: cfg for i, cfg in enumerate(list(ParameterGrid(param_grid)), 1)}
                           
-n_repeats = 1
+n_repeats = 2
 
 start = timer()
 avg_scores, best_scores = grid_search(cfgs, models_path, pdf, n_repeats)
