@@ -202,9 +202,9 @@ def load_data(cfg):
     datagen_val = ImageDataGenerator(rescale=1./255)
     datagen_eval = ImageDataGenerator(rescale=1./255)
 
-    it_train = datagen_train.flow_from_directory(train_path, target_size=(96, 96), class_mode='sparse', subset='training', batch_size=b_size, shuffle=True)
-    it_val = datagen_val.flow_from_directory(eval_path, target_size=(96, 96), class_mode='sparse', subset='validation', batch_size=b_size, shuffle=False)
-    it_eval = datagen_eval.flow_from_directory(eval_path, target_size=(96, 96), class_mode='sparse', batch_size=b_size, shuffle=False)
+    it_train = datagen_train.flow_from_directory(train_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=True)
+    it_val = datagen_val.flow_from_directory(test_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=False)
+    it_eval = datagen_eval.flow_from_directory(eval_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=False)
     
     return it_train, it_val, it_eval
     
