@@ -15,3 +15,21 @@
 
 
 ## Johdanto
+Ei-melaanoma peräiset ihosyövät ovat erityisen yleisiä vaaleaihoisella eurooppalaista syn-
+typerää olevilla ihmisillä. [Ferlay ym. (2021, sivu 787.)](https://doi.org/10.1002/ijc.33588) Ne ovat Pohjois-Euroopan toiseksi yleisempiä syöpiä. [Ferlay ym. (2021, sivu 785.)](https://doi.org/10.1002/ijc.33588) Altistuminen ultraviolettisäteilylle, joko
+suoraan auringon tai solariumin kautta on suurin syy ihosyöpä tapauksien kasvulle [Gordon ja Rowell (2015, sivu 141)](https://doi.org/10.
+1097/CEJ.0000000000000056). Gordon ja Rowell [(2015, sivu 146)]( https://doi.org/10.
+1097/CEJ.0000000000000056) mukaan ennaltaehkäisyllä saavutettaisiin kustannussääs-töjä ja saataisiin ihosyöpä vähenemään
+
+
+## Tehtävänanto
+
+Tarkoituksena on kehittää syväoppimismalli, joka tunnistaa histopatologisistakuvista ihosyöpää. Syväoppimismallin pohjana käytetään "Deep Convolutional Neural Network with TensorFlow and Keras to Classify Skin Cancer Images" tutkimusartikkelin arkkitehtuuria. Tätä arkkitehtuuria on tarkoitus iteroida paremmaksi arkkitehtuuri ja hyperparametrien muunnoksella.
+
+## Data
+
+Työssä on käytössä datasetti [Histopathologic Cancer Detection](https://www.kaggle.com/c/histopathologic-cancer-detection), joka on peräisin Kagglesta julkaistusta kilpailusta. Kuvat on jaettu csv tiedoston "id" ja "label"- kenttien perusteella syöpää sisältäviksi tai ei syöpää sisältäviksi. Kuvat ovat kooltaan 96x96 pikseliä ja syöpää sisältävissä kuvissa on keskellä 32x32 pikselin kokoinen alue, joka sisältää vähintään yhden pikselin verran kasvainkudosta. Datasetti ei sisällä kaksoiskappaleita kuvista. Kuvia, joiden luokka on tiedossa on yhteensä 220 025 kappaletta. Loput 57 458 kuvaa ovat tarkoitettu Kaggleen kilpailua varten, jolloin niiden luokat eivät ole tiedossa.
+
+## Metodologia
+
+
