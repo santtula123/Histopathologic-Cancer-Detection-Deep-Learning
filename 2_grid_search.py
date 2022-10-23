@@ -198,8 +198,8 @@ def load_data(cfg):
     
     b_size = cfg['b_size']
     
-    datagen_train = ImageDataGenerator(validation_split=0.2, rescale=1./255, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
-    datagen_val = ImageDataGenerator(validation_split=0.2, rescale=1./255)
+    datagen_train = ImageDataGenerator(rescale=1./255, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
+    datagen_val = ImageDataGenerator(rescale=1./255)
     datagen_eval = ImageDataGenerator(rescale=1./255)
 
     it_train = datagen_train.flow_from_directory(train_path, target_size=(96, 96), class_mode='sparse', subset='training', batch_size=b_size, shuffle=True)
