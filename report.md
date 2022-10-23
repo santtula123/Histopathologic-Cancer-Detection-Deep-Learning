@@ -17,8 +17,9 @@
 ## Johdanto
 Ei-melaanoma peräiset ihosyövät ovat erityisen yleisiä vaaleaihoisella eurooppalaista syn-
 typerää olevilla ihmisillä. [Ferlay ym. (2021, sivu 787.)](https://doi.org/10.1002/ijc.33588) Ne ovat Pohjois-Euroopan toiseksi yleisempiä syöpiä. [Ferlay ym. (2021, sivu 785.)](https://doi.org/10.1002/ijc.33588) Altistuminen ultraviolettisäteilylle, joko
-suoraan auringon tai solariumin kautta on suurin syy ihosyöpä tapauksien kasvulle [Gordon ja Rowell (2015, sivu 141)](https://doi.org/10.1097/CEJ.0000000000000056). Gordon ja Rowell [(2015, sivu 146)]( https://doi.org/10.1097/CEJ.0000000000000056) mukaan ennaltaehkäisyllä saavutettaisiin kustannussäästöjä ja saataisiin ihosyöpä vähenemään
+suoraan auringon tai solariumin kautta on suurin syy ihosyöpä tapauksien kasvulle [Gordon ja Rowell (2015, sivu 141)](https://doi.org/10.1097/CEJ.0000000000000056). Gordon ja Rowell [(2015, sivu 146)]( https://doi.org/10.1097/CEJ.0000000000000056) mukaan ennaltaehkäisyllä saavutettaisiin kustannussäästöjä ja saataisiin ihosyöpä vähenemään.
 
+Voisiko ennaltaehkäisyn keinona toimia syväoppimismalli, joka osaa tunnistaa syöpää histopatologisistakuvista? Hyvin kehitetty malli voisi toimia lääkärin tukena diagnostisoidessa  syöpää potilaalta ja jopa tehdä diagnosointia lääkäriä paremmin. Tämä voisi tehostaa lääkärin työtä ja auttaa syövän löytämisessä varhaisessa vaiheessa. Tämä näkyisi terveydenhuollon kulujen vähenemisenä sekä lisääntyneinä elinvuosina ihosyöpää sairastavien potilaiden joukossa. 
 
 ## Tehtävänanto
 
