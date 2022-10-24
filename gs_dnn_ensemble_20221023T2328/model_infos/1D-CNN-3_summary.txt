@@ -1,0 +1,49 @@
+Model: "model_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_5 (InputLayer)        [(None, 96, 96, 3)]       0         
+                                                                 
+ conv2d_16 (Conv2D)          (None, 96, 96, 16)        448       
+                                                                 
+ max_pooling2d_16 (MaxPoolin  (None, 48, 48, 16)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_17 (Conv2D)          (None, 48, 48, 16)        2320      
+                                                                 
+ max_pooling2d_17 (MaxPoolin  (None, 24, 24, 16)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_18 (Conv2D)          (None, 24, 24, 32)        4640      
+                                                                 
+ max_pooling2d_18 (MaxPoolin  (None, 12, 12, 32)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_19 (Conv2D)          (None, 12, 12, 32)        9248      
+                                                                 
+ max_pooling2d_19 (MaxPoolin  (None, 6, 6, 32)         0         
+ g2D)                                                            
+                                                                 
+ conv2d_20 (Conv2D)          (None, 6, 6, 64)          18496     
+                                                                 
+ max_pooling2d_20 (MaxPoolin  (None, 3, 3, 64)         0         
+ g2D)                                                            
+                                                                 
+ conv2d_21 (Conv2D)          (None, 3, 3, 64)          36928     
+                                                                 
+ max_pooling2d_21 (MaxPoolin  (None, 1, 1, 64)         0         
+ g2D)                                                            
+                                                                 
+ flatten_4 (Flatten)         (None, 64)                0         
+                                                                 
+ dropout_4 (Dropout)         (None, 64)                0         
+                                                                 
+ dense_8 (Dense)             (None, 512)               33280     
+                                                                 
+ dense_9 (Dense)             (None, 1)                 513       
+                                                                 
+=================================================================
+Total params: 105,873
+Trainable params: 105,873
+Non-trainable params: 0
+_________________________________________________________________
