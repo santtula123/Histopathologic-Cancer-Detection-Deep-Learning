@@ -123,7 +123,7 @@ def train_model(it_train, it_val, cfg, models_path):
         CSVLogger(os.path.sep.join([models_path, 'training.log']), append=True)
     ]
     
-    history = model.fit(it_train, steps_per_epoch=len(it_train), epochs=cfg['epochs'], validation_data=it_val, validation_steps=len(it_val), callbacks=cbs_list)
+    history = model.fit(it_train, epochs=cfg['epochs'], validation_data=it_val, callbacks=cbs_list)
     
     open(os.path.sep.join([models_path, 'training.log']), 'a').write(f"\n")
     
@@ -193,20 +193,19 @@ def grid_search(cfgs, models_path, pdf, n_repeats):
 def load_data(cfg):
     data_path = 'data'
     train_path = os.path.join(data_path, 'train')
-    eval_path = os.path.join(data_path, 'eval')
-    test_path = os.path.join(data_path, 'test')
+    test_eval_path = os.path.join(data_path, 'test_eval')
     
     b_size = cfg['b_size']
     
-    datagen_train = ImageDataGenerator(rescale=1./255, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
-    datagen_val = ImageDataGenerator(rescale=1./255)
-    datagen_eval = ImageDataGenerator(rescale=1./255)
+    datagen_train = ImageDataGenerator(rescale=1./255, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True, validation_split=0.15)
+    datagen_val = ImageDataGenerator(validation_split=0.15, rescale=1./255)
+    datagen_test_eval = ImageDataGenerator(rescale=1./255)
 
-    it_train = datagen_train.flow_from_directory(train_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=True)
-    it_val = datagen_val.flow_from_directory(test_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=False)
-    it_eval = datagen_eval.flow_from_directory(eval_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=False)
+    it_train = datagen_train.flow_from_directory(train_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=True, subset="training")
+    it_val = datagen_val.flow_from_directory(train_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=True, subset="validation")
+    it_test_eval = datagen_test_eval.flow_from_directory(test_eval_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=False)
     
-    return it_train, it_val, it_eval
+    return it_train, it_val, it_test_eval
     
 time = datetime.now().strftime('%Y%m%dT%H%M')
 models_path = f"gs_dnn_ensemble_{time}"
