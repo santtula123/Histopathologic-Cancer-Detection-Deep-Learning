@@ -191,7 +191,7 @@ def grid_search(cfgs, models_path, pdf, n_repeats):
     return avg_scores, best_scores
 
 def load_data(cfg):
-    data_path = 'data'
+    data_path = cfg['data_path']
     train_path = os.path.join(data_path, 'train')
     test_eval_path = os.path.join(data_path, 'test_eval')
     
