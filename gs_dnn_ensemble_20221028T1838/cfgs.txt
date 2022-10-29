@@ -1,0 +1,4 @@
+Konfiguraatio 1: {'act': 'relu', 'b_size': 10, 'data_path': 'data', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-1'}
+
+Konfiguraatio 2: {'act': 'relu', 'b_size': 10, 'data_path': 'data', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-2'}
+
