@@ -1,12 +1,13 @@
 [
 {
+'data_path': ['data'],
 'lr': [0.001],
 'optimizer': ['Adam'],
 'epochs': [20],
 'b_size': [10],
 'num_classes': [1],
-'n_filters': [[64, 64, 128, 128], [32, 32, 64, 64], [16, 16, 32, 32, 64, 64]],
+'n_filters': [[32, 32, 64, 64]],
 'act': ['relu'],
-'drop_out': [0.4]
+'drop_out': [0.3, 0.5]
 }
 ]
