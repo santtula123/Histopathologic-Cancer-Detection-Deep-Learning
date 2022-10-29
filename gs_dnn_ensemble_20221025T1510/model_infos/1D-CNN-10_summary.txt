@@ -1,0 +1,39 @@
+Model: "model_18"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_19 (InputLayer)       [(None, 96, 96, 3)]       0         
+                                                                 
+ conv2d_72 (Conv2D)          (None, 96, 96, 32)        896       
+                                                                 
+ max_pooling2d_72 (MaxPoolin  (None, 48, 48, 32)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_73 (Conv2D)          (None, 48, 48, 32)        9248      
+                                                                 
+ max_pooling2d_73 (MaxPoolin  (None, 24, 24, 32)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_74 (Conv2D)          (None, 24, 24, 64)        18496     
+                                                                 
+ max_pooling2d_74 (MaxPoolin  (None, 12, 12, 64)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_75 (Conv2D)          (None, 12, 12, 64)        36928     
+                                                                 
+ max_pooling2d_75 (MaxPoolin  (None, 6, 6, 64)         0         
+ g2D)                                                            
+                                                                 
+ flatten_18 (Flatten)        (None, 2304)              0         
+                                                                 
+ dropout_18 (Dropout)        (None, 2304)              0         
+                                                                 
+ dense_36 (Dense)            (None, 512)               1180160   
+                                                                 
+ dense_37 (Dense)            (None, 1)                 513       
+                                                                 
+=================================================================
+Total params: 1,246,241
+Trainable params: 1,246,241
+Non-trainable params: 0
+_________________________________________________________________

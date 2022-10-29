@@ -1,0 +1,108 @@
+Konfiguraatio 1: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-1'}
+
+Konfiguraatio 2: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-2'}
+
+Konfiguraatio 3: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-3'}
+
+Konfiguraatio 4: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-4'}
+
+Konfiguraatio 5: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-5'}
+
+Konfiguraatio 6: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-6'}
+
+Konfiguraatio 7: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-7'}
+
+Konfiguraatio 8: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-8'}
+
+Konfiguraatio 9: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-9'}
+
+Konfiguraatio 10: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-10'}
+
+Konfiguraatio 11: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-11'}
+
+Konfiguraatio 12: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-12'}
+
+Konfiguraatio 13: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-13'}
+
+Konfiguraatio 14: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-14'}
+
+Konfiguraatio 15: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-15'}
+
+Konfiguraatio 16: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-16'}
+
+Konfiguraatio 17: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-17'}
+
+Konfiguraatio 18: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-18'}
+
+Konfiguraatio 19: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-19'}
+
+Konfiguraatio 20: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-20'}
+
+Konfiguraatio 21: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-21'}
+
+Konfiguraatio 22: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-22'}
+
+Konfiguraatio 23: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-23'}
+
+Konfiguraatio 24: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-24'}
+
+Konfiguraatio 25: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-25'}
+
+Konfiguraatio 26: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-26'}
+
+Konfiguraatio 27: {'act': 'elu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-27'}
+
+Konfiguraatio 28: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-28'}
+
+Konfiguraatio 29: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-29'}
+
+Konfiguraatio 30: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-30'}
+
+Konfiguraatio 31: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-31'}
+
+Konfiguraatio 32: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-32'}
+
+Konfiguraatio 33: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-33'}
+
+Konfiguraatio 34: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-34'}
+
+Konfiguraatio 35: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-35'}
+
+Konfiguraatio 36: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.3, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-36'}
+
+Konfiguraatio 37: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-37'}
+
+Konfiguraatio 38: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-38'}
+
+Konfiguraatio 39: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-39'}
+
+Konfiguraatio 40: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-40'}
+
+Konfiguraatio 41: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-41'}
+
+Konfiguraatio 42: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-42'}
+
+Konfiguraatio 43: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-43'}
+
+Konfiguraatio 44: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-44'}
+
+Konfiguraatio 45: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.4, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-45'}
+
+Konfiguraatio 46: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-46'}
+
+Konfiguraatio 47: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-47'}
+
+Konfiguraatio 48: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.01, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-48'}
+
+Konfiguraatio 49: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-49'}
+
+Konfiguraatio 50: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-50'}
+
+Konfiguraatio 51: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-51'}
+
+Konfiguraatio 52: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-52'}
+
+Konfiguraatio 53: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'SGD', 'name': '1D-CNN-53'}
+
+Konfiguraatio 54: {'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': 0.5, 'epochs': 20, 'lr': 0.0001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adagrad', 'name': '1D-CNN-54'}
+
