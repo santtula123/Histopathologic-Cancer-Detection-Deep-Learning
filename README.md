@@ -12,6 +12,7 @@
 - [NumPy 1.23.2](https://numpy.org/)
 - [sklearn 1.1.1](https://scikit-learn.org/)
 - [matplotlib 3.5.2](https://matplotlib.org/)
+- [seaborn 0.12.1](https://seaborn.pydata.org)
 
 
 ## Työn rakenne
