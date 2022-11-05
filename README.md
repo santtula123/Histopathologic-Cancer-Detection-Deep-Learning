@@ -22,15 +22,17 @@ loppuprojekti
 │   README.md
 │   report.md    
 │   param_grid.txt
-│   cfg_list.txt
+│   kaggle_submission.csv
 │   1_data_download_preprocessing.ipynb
 │   2_grid_search.py
 │   3_model_diagnostics_and_predictions.ipynb
 │
 └───data
-└───gs_dnn_ensemble_20220311T0958
-└───gs_dnn_ensemble_20220321T0821
-└───resources
+└───data_limited
+└───gs_dnn_ensemble_20221023T2328
+└───gs_dnn_ensemble_20221025T1510
+└───gs_dnn_ensemble_20221028T1838
+└───histopathologic-cancer-detection
 ```
 
 ks. [raportti](./report.md).
