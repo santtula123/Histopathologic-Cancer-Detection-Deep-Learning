@@ -38,5 +38,43 @@ Opetusdataan sovellettiin datan augmentaatiota, jolla saadaan todenmukaisia muut
 
 ## Metodologia
 
-Ensimmäisessä vaiheessa verrataan tutkimuksen arkkitehtuuria kahteen muuhun arkkitehtuurin...
+Ensimmäisessä vaiheessa verrataan tutkimuksen arkkitehtuuria kahteen muuhun arkkitehtuurin laajalla datasetillä. Arkkitehtuurit eroavat alkuperäisestä "n_filters" parametrin osalta. Ensimmäisen vaiheen jälkeen parhaaksi osoittautunut "n_filter" = [32, 32, 64, 64] arvo otettiin käyttöön toiseen vaiheeseen, jossa tehtiin kattavampaa hyperparametrien optimointia pienemmällä datasetillä. Yhteensä tässä kokeiltiin 54 eri konfiguraatiota ja parhaaksi osoittautuivat "{'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': X, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '1D-CNN-31'}", missä drop_out X vaihteli arvojen 0.3, 0.4 & 0.5 välillä. Kolmannessa vaiheessa parhaat kolme mallia ajettiin uudestaan laajalla datasetillä. Käytännössä malleja ajettiin kuitenkin vain kaksi, sillä yksi parhaista oli jo ajettu vaiheessa yksi. 
 
+| Hyperparametri | Esimerkkiarvo | Selitys 
+| :-: | :-: | :-: |
+| data_path | data | Arvo joka määrää sen käytetäänkö laajaa vai rajoitettu testidatasettiä.
+| lr | 0.001 | Oppimisnopeus.
+| optimizer | Adam | Optimoija.
+| epochs | 20 | Epochien lukumäärä.
+| b_size | 10 | Batch koko ajoissa.
+| num_classes | 1 | Ennustettavien luokkien määrä. Ulostulokerroksen neuronien määrä.
+| n_filters | 32, 32, 64, 64 | Määrittelee arkkitehtuurin konvoluutio ja max-pooling kerrosten muodon.
+| act | relu | Aktivointifunktio.
+| drop_out | 0.3 | Verkon lopussa olevan drop_out kerroksen arvo.
+
+## Virheanalyysi
+
+
+Parhaan mallin suorituskyky evaluointidataa vastaan:
+
+| TP | TN | FN | FP | ACC | PREC | REC | FSCORE
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 12490 | 7914 | 671 | 942 | 0.92674 | 0.92987 | 0.94902 | 0.93934 |
+
+
+## Tulokset, virheanalyysi ja jatkotoimenpiteet
+
+Parhaan mallin suorituskyky testidataa vastaan:
+
+| TP | TN | FN | FP | ACC | PREC | REC | FSCORE
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 12185 | 7934 | 660 | 938 | 0.92642 | 0.92852 | 0.94862 | 0.93846 |
+
+Parhaan mallin suorituskyky pysyi lähes samana testidataa vastaan. Alla oleva histogrammi havainnollistaa yllä olevia TP, TN, FN & FP arvoja vielä paremmin.
+
+![Sekaannusmatriisi.](./resources/confusion_matrix_unseen.png)
+
+
+
+
+Mallin tarkkuutta olisi mahdollista parantaa entisestään, mikäli datan laatuun kiinnitettäisiin enemmän huomiota. Erilaiset data-augmentaation metodit voisivat myös olla potentiaalisia kehityskohteita olemassa olevalle mallille. Siirto-oppiminen voisi myös olla toimiva tapa parantaa mallin suorituskykyä ja se ei vaatisi niin paljon resursseja laitteistolta, kuin nykyinen malli.
