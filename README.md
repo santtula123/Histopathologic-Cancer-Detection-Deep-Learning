@@ -41,7 +41,7 @@ ks. [raportti](./report.md).
 
 ## Tulokset
 
-Parhaan mallin (ks. [2D-CNN-2](./gs_dnn_ensemble_20221023T2328/model_infos/2D-CNN-2.png) ja 
+Parhaan mallin (ks. [2D-CNN-2](./gs_dnn_ensemble_20221023T2328/model_infos/2D-CNN-2.png)) ja 
 [summary](./gs_dnn_ensemble_20221023T2328/model_infos/2D-CNN-2_summary.txt) suorituskyky evaluointidataa vastaan:
 
 | TP | TN | FN | FP | ACC | PREC | REC | FSCORE
