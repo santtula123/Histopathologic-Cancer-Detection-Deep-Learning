@@ -6,14 +6,14 @@
 
 ## Testattu seuraavilla kirjastoilla
 
-- Python 3.9.12
+- [Python 3.9.12](https://www.python.org/)
 - [Tensorflow 2.7.0](https://www.tensorflow.org/overview/?hl=fi)
 - [Pandas 1.4.3](https://pandas.pydata.org/)
 - [NumPy 1.23.2](https://numpy.org/)
 - [sklearn 1.1.1](https://scikit-learn.org/)
 - [matplotlib 3.5.2](https://matplotlib.org/)
 - [seaborn 0.12.1](https://seaborn.pydata.org)
-- [opendatasets 0.1.22] (https://github.com/JovianML/opendatasets)
+- [opendatasets 0.1.22](https://github.com/JovianML/opendatasets)
 
 
 ## Työn rakenne

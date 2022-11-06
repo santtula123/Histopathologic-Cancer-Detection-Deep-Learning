@@ -13,7 +13,7 @@
 - [sklearn 1.1.1](https://scikit-learn.org/)
 - [matplotlib 3.5.2](https://matplotlib.org/)
 - [seaborn 0.12.1](https://seaborn.pydata.org)
-- [opendatasets 0.1.22] (https://github.com/JovianML/opendatasets)
+- [opendatasets 0.1.22](https://github.com/JovianML/opendatasets)
 
 
 ## Johdanto
