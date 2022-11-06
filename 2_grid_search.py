@@ -133,7 +133,7 @@ def train_model(it_train, it_val, cfg, models_path):
     return model, history
 
 def evaluate_models(models, it_eval, cfg):
-    #OOM prevention using CPU instead of GPU that runs out memory more easily.
+    #OOM esto, kun käytetään CPU:ta GPU:n sijaan
     with tf.device('/cpu:0'):    
         X_test_eval = np.concatenate([it_eval .next()[0] for i in range(it_eval .__len__())])
         y_test_eval = np.concatenate([it_eval .next()[1] for i in range(it_eval .__len__())])
@@ -197,6 +197,7 @@ def load_data(cfg):
     
     b_size = cfg['b_size']
     
+    #Datan augmentointi
     datagen_train = ImageDataGenerator(rescale=1./255, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True, validation_split=0.15)
     datagen_val = ImageDataGenerator(validation_split=0.15, rescale=1./255)
     datagen_test_eval = ImageDataGenerator(rescale=1./255)
