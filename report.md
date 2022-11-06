@@ -6,7 +6,7 @@
 
 ## Testattu seuraavilla kirjastoilla
 
-- Python 3.9.12
+- [Python 3.9.12](https://www.python.org/)
 - [Tensorflow 2.7.0](https://www.tensorflow.org/overview/?hl=fi)
 - [Pandas 1.4.3](https://pandas.pydata.org/)
 - [NumPy 1.23.2](https://numpy.org/)
