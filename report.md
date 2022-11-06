@@ -61,6 +61,8 @@ Parhaan mallin suorituskyky evaluointidataa vastaan:
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | 12490 | 7914 | 671 | 942 | 0.92674 | 0.92987 | 0.94902 | 0.93934 |
 
+![Sekaannusmatriisi.](./resources/confusion_matrix_test_eval.png)
+
 
 ## Tulokset, virheanalyysi ja jatkotoimenpiteet
 
