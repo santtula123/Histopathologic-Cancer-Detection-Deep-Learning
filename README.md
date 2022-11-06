@@ -34,9 +34,23 @@ loppuprojekti
 └───gs_dnn_ensemble_20221025T1510
 └───gs_dnn_ensemble_20221028T1838
 └───histopathologic-cancer-detection
+└───resources
 ```
 
 ks. [raportti](./report.md).
 
 ## Tulokset
+
+Parhaan mallin (ks. [1D-CNN-2](./gs_dnn_ensemble_20221023T2328/model_infos/1D-CNN-2.png) ja 
+[summary](./gs_dnn_ensemble_20221023T2328/model_infos/1D-CNN-2_summary.txt) suorituskyky evaluointidataa vastaan:
+
+| TP | TN | FN | FP | ACC | PREC | REC | FSCORE
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 12490 | 7914 | 671 | 942 | 0.92674 | 0.92987 | 0.94902 | 0.93934 |
+
+Parhaan mallin suorituskyky testidataa vastaan:
+
+| TP | TN | FN | FP | ACC | PREC | REC | FSCORE
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 12185 | 7934 | 660 | 938 | 0.92642 | 0.92852 | 0.94862 | 0.93846 |
 
