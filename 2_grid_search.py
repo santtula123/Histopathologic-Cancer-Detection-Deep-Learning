@@ -156,7 +156,7 @@ def grid_search(cfgs, models_path, pdf, n_repeats):
     
     print(f"Yhteensä {len(cfgs)} konfiguraatiota, {n_repeats} toistolla, aloitetaan...")
     for i, cfg in cfgs.items():
-        cfg['name'] = f"1D-CNN-{i}"
+        cfg['name'] = f"2D-CNN-{i}"
         print_log(f"Konfiguraatio {i}: {cfg}", f"{models_path}/cfgs.txt")
         open(os.path.sep.join([models_path, 'training.log']), 'a').write(f"cfg: {i}\n")
         
