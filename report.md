@@ -31,8 +31,7 @@ Työssä on käytössä datasetti [Histopathologic Cancer Detection](https://www
 
 ## Esikäsittely
 
-Datasetin kuvat jaetaan 80:10:10 suhteella opetus-, testi- ja validointidata kansioihin. Kaikkien kansioiden sisällä on kansiot "cancerous" ja "non-cancerous" sen mukaan onko kuvassa syöpää vai ei. 
-Opetusdataan sovellettiin datan augmentaatiota, jolla saadaan todenmukaisia muutoksia opetusdataan. Nämä muunnokset sisälsivät sattumanvaraisen kuvan käännön vaakasuoraan, sekä kuvan siirroksia vaaka- ja pystyakseleilla. Jos esimerkiksi ajatellaan kuvaa, jossa on syöpä niin, sillä miten päin kuva on otettu ei ole väliä tai sillä onko havainto aivan kuvan keskellä.
+Datasetin kuvat jaetaan 80:10:10 suhteella opetus-, testi- ja validointidata kansioihin. Lisäksi rajoitettuun datasettin otetaan 5 % datasetin kuvista ja ne jaetaan 80:20 suhteella opetus- ja testikansioihin. Kaikkien kansioiden sisällä on kansiot "cancerous" ja "non-cancerous" sen mukaan onko kuvassa syöpää vai ei. Opetusdataan sovellettiin datan augmentaatiota, jolla saadaan todenmukaisia muutoksia opetusdataan. Nämä muunnokset sisälsivät sattumanvaraisen kuvan käännön vaakasuoraan, sekä kuvan siirroksia vaaka- ja pystyakseleilla. Jos esimerkiksi ajatellaan kuvaa, jossa on syöpä niin, sillä miten päin kuva on otettu ei ole väliä tai sillä onko havainto aivan kuvan keskellä.
 
 ## Metodologia
 
