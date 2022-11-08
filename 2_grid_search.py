@@ -36,7 +36,7 @@ from datetime import datetime
 from timeit import default_timer as timer
 from contextlib import redirect_stdout
 
-REG_L2 = lambda x: L2(l2=x) if x is not None else None
+IMG_WIDTH_HEIGHT = 96
 
 def exec_time(start, end):
     m, s = divmod(end - start, 60)
@@ -91,6 +91,7 @@ def build_model(input_shape, cfg):
     input_ = Input(shape=(input_shape))
     conv_base = input_
 
+    #Piilokerrosten rakennus
     for n_filters in cfg['n_filters']:
         conv_base = Conv2D(n_filters, 3, activation=cfg['act'], padding="same")(conv_base)
         conv_base = MaxPooling2D(2)(conv_base)
@@ -104,7 +105,7 @@ def build_model(input_shape, cfg):
     return model
 
 def train_model(it_train, it_val, cfg, models_path):
-    model = build_model((96, 96, 3), cfg)
+    model = build_model((IMG_WIDTH_HEIGHT, IMG_WIDTH_HEIGHT, 3), cfg)
     
     if cfg['optimizer'] == 'Adam':
         sgd = Adam(amsgrad=True, learning_rate=cfg['lr'])
@@ -191,7 +192,7 @@ def grid_search(cfgs, models_path, pdf, n_repeats):
     return avg_scores, best_scores
 
 def load_data(cfg):
-    data_path = cfg['data_path']
+    data_path = cfg['data_path'] #Käytetäänkö täyttä vai rajattua datasettiä
     train_path = os.path.join(data_path, 'train')
     test_eval_path = os.path.join(data_path, 'test_eval')
     
@@ -202,14 +203,14 @@ def load_data(cfg):
     datagen_val = ImageDataGenerator(validation_split=0.15, rescale=1./255)
     datagen_test_eval = ImageDataGenerator(rescale=1./255)
 
-    it_train = datagen_train.flow_from_directory(train_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=True, subset="training")
-    it_val = datagen_val.flow_from_directory(train_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=True, subset="validation")
-    it_test_eval = datagen_test_eval.flow_from_directory(test_eval_path, target_size=(96, 96), class_mode='binary', batch_size=b_size, shuffle=False)
+    it_train = datagen_train.flow_from_directory(train_path, target_size=(IMG_WIDTH_HEIGHT, IMG_WIDTH_HEIGHT), class_mode='binary', batch_size=b_size, shuffle=True, subset="training")
+    it_val = datagen_val.flow_from_directory(train_path, target_size=(IMG_WIDTH_HEIGHT, IMG_WIDTH_HEIGHT), class_mode='binary', batch_size=b_size, shuffle=True, subset="validation")
+    it_test_eval = datagen_test_eval.flow_from_directory(test_eval_path, target_size=(IMG_WIDTH_HEIGHT, IMG_WIDTH_HEIGHT), class_mode='binary', batch_size=b_size, shuffle=False)
     
     return it_train, it_val, it_test_eval
     
 time = datetime.now().strftime('%Y%m%dT%H%M')
-models_path = f"gs_dnn_ensemble_{time}"
+models_path = f"models_{time}"
 
 if not os.path.exists(models_path):
     os.mkdir(models_path)
