@@ -30,9 +30,9 @@ loppuprojekti
 │
 └───data
 └───data_limited
-└───gs_dnn_ensemble_20221023T2328
-└───gs_dnn_ensemble_20221025T1510
-└───gs_dnn_ensemble_20221028T1838
+└───models_20221023T2328
+└───models_20221025T1510
+└───models_20221028T1838
 └───histopathologic-cancer-detection
 └───resources
 ```
@@ -41,8 +41,8 @@ ks. [raportti](./report.md).
 
 ## Tulokset
 
-Parhaan mallin (ks. [2D-CNN-2](./gs_dnn_ensemble_20221023T2328/model_infos/2D-CNN-2.png)) ja 
-[summary](./gs_dnn_ensemble_20221023T2328/model_infos/2D-CNN-2_summary.txt) suorituskyky evaluointidataa vastaan:
+Parhaan mallin (ks. [2D-CNN-2](./models_20221023T2328/model_infos/2D-CNN-2.png)) ja 
+[summary](./models_20221023T2328/model_infos/2D-CNN-2_summary.txt) suorituskyky evaluointidataa vastaan:
 
 | TP | TN | FN | FP | ACC | PREC | REC | FSCORE
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
