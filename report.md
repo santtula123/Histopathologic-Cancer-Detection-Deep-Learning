@@ -60,10 +60,11 @@ Ensimmäisessä vaiheessa verrataan tutkimuksen arkkitehtuuria kahteen muuhun ar
 Mallien tuottamia tuloksia voi tarkastella tiedostosta [best_results.txt](./models_20221023T2328/best_results.txt) ja keskimääräisiä tuloksia tiedostosta [avg_results.txt](./models_20221023T2328/avg_results.txt). Ensimmäisen vaiheen jälkeen parhaaksi osoittautunut "n_filter" = [32, 32, 64, 64] arvo otettiin käyttöön toiseen vaiheeseen, jossa tehtiin kattavampaa hyperparametrien optimointia pienemmällä datasetillä. Yhteensä toisessa vaiheessa kokeiltiin 54 eri konfiguraatiota ja parhaaksi osoittautuivat "{'act': 'relu', 'b_size': 10, 'data_path': 'data_limited', 'drop_out': X, 'epochs': 20, 'lr': 0.001, 'n_filters': [32, 32, 64, 64], 'num_classes': 1, 'optimizer': 'Adam', 'name': '2D-CNN-31'}", missä drop_out X vaihteli arvojen 0.3, 0.4 & 0.5 välillä. Toisen vaiheen mallien tuottamia tuloksia voi tarkastella tiedostosta [best_results.txt](./models_20221025T1510/best_results.txt) ja keskimääräisiä tuloksia tiedostosta [avg_results.txt](./models_20221025T1510/avg_results.txt). Kolmannessa vaiheessa parhaat kolme mallia ajettiin uudestaan laajalla datasetillä. Käytännössä malleja ajettiin kuitenkin vain kaksi, sillä yksi parhaista oli jo ajettu vaiheessa yksi. Kolmannen vaiheen mallien tuottamia tuloksia voi tarkastella tiedostosta [best_results.txt](./models_20221028T1838/best_results.txt) ja keskimääräisiä tuloksia tiedostosta [avg_results.txt](./models_20221028T1838/avg_results.txt). Parhaaksi malliksi osoittautui vaiheen yksi [malli](./models_20221023T2328/models/2_v1.hdf5)  
 ![Paras malli](./models_20221023T2328/model_infos/2D-CNN-2.png)
 
-Ensimmäisen vaiheen oppimiskäyrissä konfiguraatioiden yksi ja kaksi käyrät ovat hyvin samankaltaiset ja tarkkuudessa on eroa vain 0.14 prosenttiyksikön verran (ks. [vaiheen 1 oppimiskäyrät](./models_20221023T2328/learning_curves.pdf). Kuitenkin konfiguraatiossa kolme mallin syventäminen aiheutti hieman heittelyä validointitarkkuuden käyriin ja heikensi myös tarkkuutta. [Toisen vaiheen oppimiskäyrissä](./models_20221025T1510/learning_curves.pdf) on nähtävissä osissa konfiguraatioissa jumiutumista johonkin tiettyyn arvoon. Tätä saattaa selittää käytetyn konfiguraation lisäksi myös rajoitettu opetusdatan määrä, mikä selvästi heikensi tuloksia. Suurempaa heittelyä opetus- ja validointitarkkuuksien välillä on myös havaittavissa. [Kolmannen vaiheen oppimiskäyrät](./models_20221028T1838/learning_curves.pdf) ovat vastaavia kuin vaiheessa yksi ja tarkkuus ei merkkitävästi eroa ensimmäisen vaiheen parhaan malliin verrattuna. 
+Ensimmäisen vaiheen oppimiskäyrissä konfiguraatioiden yksi ja kaksi käyrät ovat hyvin samankaltaiset ja tarkkuudessa on eroa vain 0.14 prosenttiyksikön verran (ks. [vaiheen 1 oppimiskäyrät](./models_20221023T2328/learning_curves.pdf). Kuitenkin konfiguraatiossa kolme mallin syventäminen aiheutti hieman heittelyä validointitarkkuuden käyriin ja heikensi myös tarkkuutta. [Toisen vaiheen oppimiskäyrissä](./models_20221025T1510/learning_curves.pdf) on nähtävissä osissa konfiguraatioissa jumiutumista johonkin tiettyyn arvoon. Tätä saattaa selittää käytetyn konfiguraation lisäksi myös rajoitettu opetusdatan määrä, mikä selvästi heikensi tuloksia. Suurempaa heittelyä opetus- ja validointitarkkuuksien välillä on myös havaittavissa. [Kolmannen vaiheen oppimiskäyrät](./models_20221028T1838/learning_curves.pdf) ovat vastaavia kuin vaiheessa yksi ja tarkkuus ei merkkitävästi eroa ensimmäisen vaiheen parhaaseen malliin verrattuna. 
 
 ## Virheanalyysi
 
+Mallin suoritumisen arvioon käytetään sekaannusmatriisia, tarkkuutta sekä F1- mittarin tuottamia tuloksia. Näiden mittarien pohjalta tullaan valitsemaan parhaiten suorituva mallia, jota vasten ajetaan vielä Kaggleen tehtävä arviointi, sillä käytetty testidata on alunperin peräisin Kagglen tarjoamasta kilpailusta.
 
 Parhaan mallin suorituskyky evaluointidataa vastaan:
 
@@ -73,6 +74,7 @@ Parhaan mallin suorituskyky evaluointidataa vastaan:
 
 ![Sekaannusmatriisi.](./resources/confusion_matrix_test_eval.png)
 
+Sekaannusmatriisista nähdään, missä suhteessa mallin luokittelu osuu kohdallaan ja missä luokassa se antaa eniten vääriä vastauksia. Koska kyseessä on lääketieteellistä aineistoa niin tässä kohtaa false negative olisi potilaan kannalta pahin mahdollinen tulos, sillä sillloin malli väittäisi, että kuvassa ei ole syöpää vaikka todellisuudessa siinä on. Näin ollen mallin kynnysarvon muuttaminen 0.5 johonkin muuhun arvoon voisi parhaassa tapauksessa lisätä luokittelutarkkuutta ja/tai vähentää false negatiivisten osuutta. Kuitenkin arvon muuttaminen johonkin muuhun kuin 0.5 heikensi tarkkuutta, joten arvo päätettiin pitää muuttumattomana.
 
 ## Tulokset, virheanalyysi ja jatkotoimenpiteet
 
@@ -86,7 +88,13 @@ Parhaan mallin suorituskyky pysyi lähes samana testidataa vastaan. Alla oleva h
 
 ![Sekaannusmatriisi.](./resources/confusion_matrix_unseen.png)
 
+Suorituskyvyn pysyminen suhteellisen samana tuntemattomalla aineistolla on hyvä merkki, sillä se kertoo siitä, että malli ei ole ali- tai ylioppinut. Malli päätettiin arvioida myös Kagglessa ja alla näkyvät Kagglen tarjoamat pisteytykset mallille.
 
+Parhaan mallin suotuskyky Kagglen tuntematontadataa vastaan:
+| private score | public score |
+| :-: | :-: |
+| 0.921 | 0.9468 |
 
+Tutkimuksessa käytetty mallli saavutti 93.93 % tarkkuuden tuntemattomalla datalla. Tässä päästiin siis varsin lähelle kyseistä arvoa. Tosin huomion arvoista on se, että käytetty datasetti oli eri ja tutkimuksessa kyse oli moniluokitteluonglemasta verrattuna tämän työn binääriluokitteluun.
 
-Mallin tarkkuutta olisi mahdollista parantaa entisestään, mikäli datan laatuun kiinnitettäisiin enemmän huomiota. Erilaiset data-augmentaation metodit voisivat myös olla potentiaalisia kehityskohteita olemassa olevalle mallille. Siirto-oppiminen voisi myös olla toimiva tapa parantaa mallin suorituskykyä ja se ei vaatisi niin paljon resursseja laitteistolta, kuin nykyinen malli.
+Mallin tarkkuutta olisi mahdollista parantaa entisestään, mikäli datan laatuun kiinnitettäisiin enemmän huomiota. Dataa visualisoidessa havaittiin, että joukossa oli jonkin verran ali- tai ylivalottuneita kuvia. On myös mahdollista, että kaikista kuvista ei ole tehty oikeasti kattavaa selvitystä onko kyseessä ollut syöpää vai ei ja duplikaatit samasta tapauksesta ovat myös mahdollisia.Erilaiset data-augmentaation metodit voisivat myös olla potentiaalisia kehityskohteita olemassa olevalle mallille. Kuitenkin näiden lisääminen grid searchiin olisi kasvattanut jo ennestään aikaa vievän laskennan paljon korkeammaksi.Siirto-oppiminen voisi myös olla toimiva tapa parantaa mallin suorituskykyä ja se ei vaatisi niin paljon resursseja laitteistolta, kuin nykyinen malli. Erityisesti silloin, jos siirto-oppimiseen käytetystä mallista on saatu jo aiemmin hyviä tuloksia lääketieteellisten kuvien luokittelun saralla. 
