@@ -12,7 +12,6 @@ if gpus:
 
 import os
 import shutil
-import pandas as pd
 import numpy as np
 import tensorflow as tf
 import ast
@@ -20,13 +19,10 @@ import ast
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dropout, Dense
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.regularizers import L2
 from tensorflow.keras.optimizers import Adam, Adagrad, SGD
 from tensorflow.keras.callbacks import ModelCheckpoint, CSVLogger
-from tensorflow.keras.models import load_model
 from tensorflow.keras.utils import plot_model
 
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import ParameterGrid
 
