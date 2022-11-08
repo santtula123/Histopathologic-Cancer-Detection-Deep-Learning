@@ -30,6 +30,7 @@ loppuprojekti
 │
 └───data
 └───data_limited
+└───data_kaggle
 └───models_20221023T2328
 └───models_20221025T1510
 └───models_20221028T1838
